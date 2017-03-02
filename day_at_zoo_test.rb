@@ -10,12 +10,13 @@ class TestDayAtZoo < Minitest::Test
     @wolf  = Animal.new(naam: 'wolf')
     @chicken = Animal.new(carn: false, herb: true, naam: 'chicken')
     @cow   = Animal.new( carn: false, herb: true, naam: 'cow' )
+    @swiggy= Animal.new( carn: false, herb: false, naam: 'swiggy')
     @zoo.carnivore_cage << @tiger if @tiger.is_carnivore?
     @zoo.carnivore_cage << @lion if @lion.is_carnivore?
     @zoo.carnivore_cage << @wolf if @wolf.is_carnivore?
     @zoo.herbivore_cage << @chicken if @chicken.is_herbivore?
     @zoo.herbivore_cage << @cow if @cow.is_herbivore?
-
+    @zoo.holding_cage << @swiggy if @swiggy.is_unknownvore?
   end
 
   def test_carnivore_cage
@@ -37,5 +38,14 @@ class TestDayAtZoo < Minitest::Test
 
   def test_is_herbivore
     assert_equal true, @cow.is_herbivore?
+  end
+
+  def test_is_unknownvore
+    assert_equal true, @swiggy.is_unknownvore?
+  end
+
+  def test_holding_cage
+    assert_equal 1, @zoo.holding_cage.length
+    assert_equal "swiggy", @zoo.holding_cage[0].name
   end
 end
