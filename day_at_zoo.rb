@@ -6,6 +6,16 @@ class Zoo
     @herbivore_cage = []
     @ominvore_cage  = []
   end
+
+  def add_to_correc_cage(animal)
+    if animal.is_carnivore?
+      carnivore_cage << animal
+    elsif animal.is_herbivore?
+      herbivore_cage << animal
+    else
+      ominvore_cage << animal
+    end
+  end
 end
 
 class Animal
@@ -31,7 +41,7 @@ class Animal
   end
 
   def is_omnivore?
-    omnivore == true 
+    omnivore == true
   end
 end
 
