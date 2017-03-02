@@ -20,4 +20,11 @@ class TestDayAtZoo < Minitest::Test
     assert_equal 1, @zoo.herbivore_cage.length
   end
 
+  def test_is_carnivore
+    assert_equal true, @tiger.is_carnivore?
+  end
+
+  def test_is_herbivore
+    assert_equal true, @cow.is_herbivore?
+  end
 end
