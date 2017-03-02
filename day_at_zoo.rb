@@ -5,6 +5,14 @@ class Zoo
     @carnivore_cage = []
     @herbivore_cage = []
   end
+
+  def add_to_correc_cage(animal)
+    if animal.is_carnivore?
+      carnivore_cage << animal
+    else
+      herbivore_cage << animal
+    end
+  end
 end
 
 class Animal

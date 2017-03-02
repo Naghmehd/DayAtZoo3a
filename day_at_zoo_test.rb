@@ -10,11 +10,11 @@ class TestDayAtZoo < Minitest::Test
     @wolf  = Animal.new(naam: 'wolf')
     @chicken = Animal.new(carn: false, herb: true, naam: 'chicken')
     @cow   = Animal.new( carn: false, herb: true, naam: 'cow' )
-    @zoo.carnivore_cage << @tiger if @tiger.is_carnivore?
-    @zoo.carnivore_cage << @lion if @lion.is_carnivore?
-    @zoo.carnivore_cage << @wolf if @wolf.is_carnivore?
-    @zoo.herbivore_cage << @chicken if @chicken.is_herbivore?
-    @zoo.herbivore_cage << @cow if @cow.is_herbivore?
+    @zoo.add_to_correc_cage(@tiger)
+    @zoo.add_to_correc_cage(@lion)
+    @zoo.add_to_correc_cage(@wolf)
+    @zoo.add_to_correc_cage(@chicken)
+    @zoo.add_to_correc_cage(@cow)
 
   end
 
