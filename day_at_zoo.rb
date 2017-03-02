@@ -23,11 +23,11 @@ class Animal
   end
 
   def is_carnivore?
-    carnivore
+    carnivore == true && herbivore == false
   end
 
   def is_herbivore?
-    herbivore
+    herbivore == true && carnivore == false
   end
 
   def is_unknownvore?
