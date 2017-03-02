@@ -1,19 +1,25 @@
 class Zoo
-  attr_accessor :carnivore_cage, :herbivore_cage
+  attr_accessor :carnivore_cage, :herbivore_cage, :ominvore_cage
 
   def initialize
     @carnivore_cage = []
     @herbivore_cage = []
+    @ominvore_cage  = []
   end
 end
 
 class Animal
-  attr_reader :carnivore, :herbivore, :name
+  attr_reader :carnivore, :herbivore, :name, :omnivore
 
-  def initialize ( carn: true, herb: false, naam: "" )
+  def initialize ( carn: true, herb: false, naam: "")
     @carnivore = carn
     @herbivore = herb
     @name      = naam
+    if carn == true && herb == true
+      @omnivore = true
+    else
+      @omnivore = false
+    end
   end
 
   def is_carnivore?
@@ -22,6 +28,10 @@ class Animal
 
   def is_herbivore?
     herbivore == true && carnivore == false
+  end
+
+  def is_omnivore?
+    omnivore == true 
   end
 end
 
